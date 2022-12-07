@@ -17,9 +17,9 @@ Python. Beautiful Soup for MHTML parsing, iCalendar for creating the iCal file.
 Download an MHTML file from Wolverine Access.
 
 Backpack/Registration > My Class Schedule > List View > Scroll to the bottom and click "Printer friendly page" \
-Open Browser Tools and click "Save Page As" > Choose "Webpage, Single File" as format. 
+Open Browser Tools and click "Save Page As" > Choose "Webpage, Single File" format. 
 
-Save somewhere and specify path to file in command line argument
+Save somewhere and specify path to file in command line argument.
 
 ### Virtual Environment
 ``` console
@@ -37,5 +37,6 @@ Generated iCal file W23ClassSchedule.ics
 ```
 
 ### Pitfalls
-- Are hardcoded ids and class names the same for everyone? Or the same for the same person for different semesters?
+- `icalendar` doesn't allow recurrance for one event on multiple days of the week. Each weekday is a separate event.
+- Unkown if hardcoded ids and class names the same for everyone. Or the same for the same person for different semesters.
 
