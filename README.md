@@ -11,6 +11,7 @@ Python. Beautiful Soup for MHTML parsing, iCalendar for creating the iCal file.
 ### Learning Goals
 - Play with Beautiful Soup (it's awesome)
 - Figure out why Wolverine Access and Atlas BOTH don't have a built-in iCal export option (inconclusive).
+- More practice programming in Emacs :)
 
 ## Usage
 Download an MHTML file from Wolverine Access.
