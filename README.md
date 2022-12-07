@@ -38,6 +38,5 @@ Generated iCal file W23ClassSchedule.ics
 ```
 
 ### Pitfalls
-- `icalendar` doesn't allow recurrance for one event on multiple days of the week. Each weekday is a separate event.
-- Unkown if hardcoded ids and class names the same for everyone. Or the same for the same person for different semesters.
+- `icalendar` doesn't allow recurrence for one event on multiple days of the week. Each weekday is a separate event. 
 
