@@ -3,7 +3,7 @@
 Python program to convert class schedule (Wolverine Access MHTML download) to an iCal file.
 
 ### Why?
-I'm too lazy to put my classes in my calendar. Why do something that I can make code do for me?
+I'm too lazy to put my classes in my calendar.
 
 ### How?
 Python. Beautiful Soup for MHTML parsing, iCalendar for creating the iCal file.
@@ -16,7 +16,7 @@ Python. Beautiful Soup for MHTML parsing, iCalendar for creating the iCal file.
 Download an MHTML file from Wolverine Access.
 
 Backpack/Registration > My Class Schedule > List View > Scroll to the bottom and click "Printer friendly page" \
-Open Browser Tools and click "Save Page As" > Choose "Webpage, Single File" as format. \
+Open Browser Tools and click "Save Page As" > Choose "Webpage, Single File" as format. 
 
 Save somewhere (`src/` directory will do) and specify path to file in command line argument
 
