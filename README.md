@@ -10,6 +10,7 @@ Python. [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 ### Learning Goals
 - Play with Beautiful Soup (it's awesome)
+- Understand the iCal (.ics) file structure
 - Figure out why Wolverine Access and Atlas BOTH don't have a built-in iCal export option (inconclusive).
 - More practice programming in Emacs :)
 
