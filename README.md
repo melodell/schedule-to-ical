@@ -32,7 +32,7 @@ $ pip install -r requirements.txt
 $ which python
 /Users/melinaodell/src/personal/schedule-to-ical/env/bin/python
 $ python3 src/main.py src/W23ClassSchedule.mht
-Generated iCal file W23ClassSchedule.ical
+Generated iCal file W23ClassSchedule.ics
 ```
 
 ### Pitfalls
