@@ -6,7 +6,7 @@ Python program to convert class schedule (Wolverine Access MHTML download) to an
 I'm too lazy to put my classes in my calendar.
 
 ### How?
-Python. Beautiful Soup for MHTML parsing, iCalendar for creating the iCal file.
+Python. [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) for MHTML parsing, [iCalendar](https://icalendar.readthedocs.io/en/latest/index.html) for creating the iCal file.
 
 ### Learning Goals
 - Play with Beautiful Soup (it's awesome)
