@@ -1,7 +1,5 @@
-import bs4
 import argparse
 import pathlib
-import re
 
 from utils import *
 
@@ -16,15 +14,24 @@ def handle_args():
 def get_html(filename):
     html_file = pathlib.Path(filename).resolve()
     html = html_file.read_text()
-    html = html.replace('=\n', '')
+    html = html.replace('=\n', '')  # remove weird line endings
     return html
+
+
+def write_ical(filename, calendar):
+    out_filename = filename.split('.')[0] + '.ics'
+    out_file = pathlib.Path(out_filename).resolve()
+    with out_file.open('wb') as f:
+        f.write(calendar)
+    print(f'Generated iCal file {out_filename}')
     
 
 def main():
     args = handle_args()
     html = get_html(args.filename)
-    soup = bs4.BeautifulSoup(html, 'html.parser')
-    classes = get_classes(soup)
+    classes = get_classes(html)
+    calendar = make_ical(classes)
+    write_ical(args.filename, calendar)
 
 
 if __name__ == "__main__":

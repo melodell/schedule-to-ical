@@ -19,7 +19,7 @@ Download an MHTML file from Wolverine Access.
 Backpack/Registration > My Class Schedule > List View > Scroll to the bottom and click "Printer friendly page" \
 Open Browser Tools and click "Save Page As" > Choose "Webpage, Single File" as format. 
 
-Save somewhere (`src/` directory will do) and specify path to file in command line argument
+Save somewhere and specify path to file in command line argument
 
 ### Virtual Environment
 ``` console
@@ -32,7 +32,7 @@ $ pip install -r requirements.txt
 ``` console
 $ which python
 /Users/melinaodell/src/personal/schedule-to-ical/env/bin/python
-$ python3 src/main.py src/W23ClassSchedule.mht
+$ python3 src/main.py W23ClassSchedule.mht
 Generated iCal file W23ClassSchedule.ics
 ```
 
