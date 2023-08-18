@@ -24,7 +24,7 @@ def write_ical(filename, calendar):
     with out_file.open('wb') as f:
         f.write(calendar)
     print(f'Generated iCal file {out_filename}')
-    
+
 
 def main():
     args = handle_args()
@@ -36,4 +36,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -38,35 +38,47 @@ def format_times(times):
     days, start_time, end_time = times.replace('-', '').split()
     day_list = [days[i:i+2] for i in range(0, len(days), 2)]
     return day_list, start_time, end_time
-    
+
 
 # Build a dictionary with class data
 # Return a list of sections for the class in class_soup
 def build_class(class_soup):
     c = []
-    
+
     name = get_class_name(class_soup)
     locations = get_class_data(class_soup, LOCATION_PATTERN)
     times = get_class_data(class_soup, TIME_PATTERN)
     dates = get_class_data(class_soup, DATE_PATTERN)
     section_numbers = get_class_data(class_soup, SECTION_PATTERN)
     types = get_class_data(class_soup, TYPE_PATTERN)
-    
+
     for i in range(len(locations)):
         days, start_time, end_time = format_times(times[i])
+
+        # Error guarding for missing locations or section numbers
+        if i >= len(section_numbers):
+            section_number = section_numbers[0]
+        else:
+            section_number = section_numbers[i]
+
+        if i > len(locations):
+            location = locations[0]
+        else:
+            location = locations[i]
+
         section = {
             "name": name,
-            "location": locations[i],
+            "location": location,
             "days": days,
             "start_time": start_time,
             "end_time": end_time,
             "start_date": dates[i].partition(' - ')[0],
             "end_date": dates[i].partition(' - ')[2],
-            "section_number": section_numbers[i],
+            "section_number": section_number,
             "type": types[i]
         }
         c.append(section)
-        
+
     return c
 
 
@@ -104,7 +116,7 @@ def get_start_date(start, day):
 # Return an iCal string with all class events
 def make_ical(classes):
     cal = icalendar.Calendar()
-    
+
     # Some properties are required to be compliant
     cal.add('prodid', '-//My calendar product//mxm.dk//')
     cal.add('version', '2.0')
@@ -115,7 +127,7 @@ def make_ical(classes):
             description = f'{section["location"]}\n{section["section_number"]}'
 
             # Package doesn't support multiday repeats, so make every weekday a separate event
-            for day in section['days']:  
+            for day in section['days']:
                 event = icalendar.Event()
 
                 start = get_time(section['start_date'] + " " + section['start_time'])
@@ -131,5 +143,5 @@ def make_ical(classes):
                 event.add('dtend', end)
                 event.add('rrule', recur)
                 cal.add_component(event)
-                
+
     return cal.to_ical()
