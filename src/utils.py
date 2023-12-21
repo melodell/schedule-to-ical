@@ -35,6 +35,8 @@ def get_class_data(soup, pattern):
 
 # Reformat time string into list of days and start/end times
 def format_times(times):
+    if times == "TBA":
+        return "", "", ""
     days, start_time, end_time = times.replace('-', '').split()
     day_list = [days[i:i+2] for i in range(0, len(days), 2)]
     return day_list, start_time, end_time
@@ -123,7 +125,10 @@ def make_ical(classes):
 
     for c in classes:
         for section in c:
-            name = f'{section["name"]} - {section["type"]}'
+            if section["type"] != "": # If no type is assigned (ex. Lecture, Discussion)
+                name = f'{section["name"]} - {section["type"]}'
+            else:
+                name = f'{section["name"]}'
             description = f'{section["location"]}\n{section["section_number"]}'
 
             # Package doesn't support multiday repeats, so make every weekday a separate event
